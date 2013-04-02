@@ -1,0 +1,19 @@
+- model_class = User
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.pluralize
+  .pull-right
+    = render :partial => "global/search_box"  
+%table.table.table-striped
+  %thead
+    %tr
+      %th= model_class.human_attribute_name(:id)
+      %th= model_class.human_attribute_name(:first_name)
+      %th= model_class.human_attribute_name(:last_name)
+      %th= model_class.human_attribute_name(:gender)
+      %th= model_class.human_attribute_name(:birth_date)
+      %th= model_class.human_attribute_name(:description)
+      %th= model_class.human_attribute_name(:email)
+      %th=t '.actions', :default => t("helpers.actions")
+  %tbody
+    = render :partial => "users_table"
+= link_to t('.new', :default => t("helpers.links.new")), new_user_path, :class => 'btn btn-primary'
